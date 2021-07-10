@@ -10,7 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, education
 Text Domain: matrix
 */
-
+a{
+    text-decoration: none !important;
+}
 h1.heading {
     font-family: "Arial Black";
     width: 700px;
