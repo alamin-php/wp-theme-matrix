@@ -66,3 +66,7 @@ h2.post-title {
 .tags li{
     color: #3D9970;
 }
+
+.post-pagination{
+    margin-bottom: 50px;
+}
