@@ -28,24 +28,24 @@
                         </p>
                         <?php 
                             $tag_list = get_the_tag_list( "<ul class='list-unstyled tag-list'><li>", "</li><li>", "</li></ul>" );
-                            if ( $tag_list && ! is_wp_error( $tag_list ) ) {
+                            if ( $tag_list && ! is_wp_error( $tag_list ) ) :
                                 echo $tag_list;
-                            }
+                            endif;
                         ?>
                     </div>
                     <div class="col-md-8">
 
                         <?php 
-                            if(has_post_thumbnail(  )){
+                            if(has_post_thumbnail(  )):
                                 the_post_thumbnail( "learg", array("class" => "img-fluid") );
-                            }else{
+                            else:
                                 ?>
                                     <p>
                                         <img class="img-fluid" src="<?php echo get_template_directory_uri(  ) ?>/assets/images/default/no_image.png"
                                         alt="Post Title">
                                     </p>
                                 <?php
-                            }
+                            endif;
                         ?>
                         <?php the_excerpt(  ); ?>
                     </div>

@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
 
-                    <?php 
+                        <?php 
                             if(has_post_thumbnail(  )){
                                 the_post_thumbnail( "learg", array("class" => "img-fluid") );
                             }else{
@@ -41,6 +41,11 @@
                         ?>
                         <?php the_content(  );?>
                     </div>
+                    <?php if(comments_open(  )) : ?>
+                    <div class="col-md-10 offset-md-1">
+                            <?php comments_template(  ); ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
 
             </div>
