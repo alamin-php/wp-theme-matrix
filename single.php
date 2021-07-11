@@ -40,6 +40,11 @@
                             }
                         ?>
                         <?php the_content(  );?>
+                        <?php 
+                            next_post_link(  );
+                            echo "</br>";
+                            previous_post_link(  );
+                        ?>
                     </div>
                     <?php if(comments_open(  )) : ?>
                     <div class="col-md-10 offset-md-1">
