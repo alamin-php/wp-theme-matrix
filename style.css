@@ -67,6 +67,10 @@ h2.post-title {
     color: #3D9970;
 }
 
+ul.tag-list{
+    text-transform: capitalize !important;
+}
+
 .post-pagination{
     margin-bottom: 50px;
 }

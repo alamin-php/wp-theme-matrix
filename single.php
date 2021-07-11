@@ -27,10 +27,17 @@
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
 
-                        <?php 
+                    <?php 
                             if(has_post_thumbnail(  )){
-                                the_post_thumbnail( "large", array("class" => "img-fluid") );
-                            } 
+                                the_post_thumbnail( "learg", array("class" => "img-fluid") );
+                            }else{
+                                ?>
+                                    <p>
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(  ) ?>/assets/images/default/no_image.png"
+                                        alt="Post Title">
+                                    </p>
+                                <?php
+                            }
                         ?>
                         <?php the_content(  );?>
                     </div>

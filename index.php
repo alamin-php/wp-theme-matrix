@@ -27,7 +27,7 @@
                             <?php echo get_the_date( "jS M, Y" ); ?>
                         </p>
                         <?php 
-                            $tag_list = get_the_tag_list( "<ul class='list-unstyled'><li>", "</li><li>", "</li></ul>" );
+                            $tag_list = get_the_tag_list( "<ul class='list-unstyled tag-list'><li>", "</li><li>", "</li></ul>" );
                             if ( $tag_list && ! is_wp_error( $tag_list ) ) {
                                 echo $tag_list;
                             }
@@ -35,12 +35,19 @@
                     </div>
                     <div class="col-md-8">
 
-                        <?php the_post_thumbnail( "large", array("class" => "img-fluid") ); ?>
-                        <?php if(is_single(  )){
-                            the_content(  );
-                        }else{
-                            the_excerpt(  );
-                        } ?>
+                        <?php 
+                            if(has_post_thumbnail(  )){
+                                the_post_thumbnail( "learg", array("class" => "img-fluid") );
+                            }else{
+                                ?>
+                                    <p>
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(  ) ?>/assets/images/default/no_image.png"
+                                        alt="Post Title">
+                                    </p>
+                                <?php
+                            }
+                        ?>
+                        <?php the_excerpt(  ); ?>
                     </div>
                 </div>
 
