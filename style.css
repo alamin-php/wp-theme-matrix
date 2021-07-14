@@ -71,6 +71,26 @@ ul.tag-list{
     text-transform: capitalize !important;
 }
 
+/* Post Pagination css */
+
 .post-pagination{
     margin-bottom: 50px;
+}
+
+.post-pagination .pagination {
+    text-align: center;
+    display: block;
+}
+
+.post-pagination a.page-numbers {
+    font-size: 18px;
+    background-color: #222;
+    color: #fff;
+    padding: 5px 10px;
+}
+.post-pagination .nav-links .current {
+    font-size: 18px;
+    background-color: #999;
+    color: #fff;
+    padding: 5px 10px;
 }
