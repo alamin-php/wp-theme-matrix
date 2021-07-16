@@ -94,3 +94,12 @@ ul.tag-list{
     color: #fff;
     padding: 5px 10px;
 }
+
+/* Footer wigets menu */
+ul#menu-social-link {
+    list-style-type: none;
+}
+
+ul#menu-social-link li {
+    display: inline-block;
+}
