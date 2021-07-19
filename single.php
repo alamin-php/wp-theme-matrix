@@ -1,15 +1,6 @@
 <?php get_header(  ); ?>
 <body <?php body_class( ); ?>>
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="tagline"><?php bloginfo( "description" ); ?></h3>
-                <h1 class="align-self-center display-1 text-center heading"><a href="<?php echo site_url(  ); ?>"><?php bloginfo( "name" ); ?></a></h1>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part( "template-parts/hero" ); ?>
 <div class="posts">
 <?php if(have_posts(  )) : ?>
     <?php while(have_posts(  )):the_post(  ); ?>
@@ -40,17 +31,16 @@
                             }
                         ?>
                         <?php the_content(  );?>
-                        <?php 
-                            next_post_link(  );
-                            echo "</br>";
-                            previous_post_link(  );
-                        ?>
+                            <div class="single-pagination">
+                                <div class="latest-post">
+                                    <?php next_post_link(  );?>
+                                </div>                                
+                                <div class="old-post">
+                                    <?php previous_post_link(  );?>
+                                </div>
+                            </div>
                     </div>
-                    <?php if(comments_open(  )) : ?>
-                    <div class="col-md-10 offset-md-1">
-                            <?php comments_template(  ); ?>
-                    </div>
-                    <?php endif; ?>
+<?php /*comments_template( "template-parts/post-comment" )*/ ?>
                 </div>
 
             </div>
