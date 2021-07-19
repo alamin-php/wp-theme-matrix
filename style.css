@@ -95,13 +95,11 @@ ul.tag-list{
     padding: 5px 10px;
 }
 
-/* Single-posts paginations  */
-.single-pagination{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 40px 0;
-    border: 1px solid #ddd;
-    padding: 10px 0;
-    border-radius: 3px;
+/* Footer wigets menu */
+ul#menu-social-link {
+    list-style-type: none;
+}
+
+ul#menu-social-link li {
+    display: inline-block;
 }
