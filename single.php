@@ -34,11 +34,14 @@
                                         }
                                     ?>
                                     <?php the_content(  );?>
-                                    <?php 
-                                        next_post_link(  );
-                                        echo "</br>";
-                                        previous_post_link(  );
-                                    ?>
+                                    <div class="post-pag-wrap">
+                                        <div class="post-pag-container prev">
+                                            <?php previous_post_link('<span>Previous</span><h3>%link</h3>', '%title', false);?>
+                                        </div>                                
+                                        <div class="post-pag-container next">
+                                            <?php next_post_link('<span>Next</span><h3>%link</h3>', '%title', false);?>
+                                        </div>
+                                    </div>
                                 </div>
                                 <?php if(comments_open(  )) : ?>
                                 <div class="col-md-10 offset-md-1">

@@ -103,3 +103,32 @@ ul#menu-social-link {
 ul#menu-social-link li {
     display: inline-block;
 }
+
+/* single page pagination  */
+.post-pag-wrap {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin: 50px 0px;
+    padding: 10px 0px;
+    overflow: hidden;
+}
+.post-pag-container.prev {
+    width: 50%;
+    float: left;
+    text-align: left;
+    border-right: 1px solid #ddd;
+}
+.post-pag-container.next {
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+.post-pag-wrap span {
+    font-size: 18px;
+    color: #444;
+    font-weight: 400;
+}
+
+.post-pag-wrap h3 a{
+    font-size: 22px;
+}
