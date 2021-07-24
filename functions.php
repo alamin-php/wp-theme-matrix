@@ -8,6 +8,8 @@ function matrix_bootstraping(){
     load_theme_textdomain( "matrix" );
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
+    register_nav_menu( "topmenu", __("Top Menu", "matrix") );
+    register_nav_menu( "footermenu", __("Social Link", "matrix") );
 }
 add_action( "after_setup_theme", "matrix_bootstraping");
 
@@ -55,3 +57,9 @@ function matrix_sindebar(){
     );
 }
 add_action( "widgets_init", "matrix_sindebar" );
+
+function matrix_menu_item_css($classes, $item){
+    $classes[] = "list-inline-item";
+    return $classes;
+}
+add_filter( "nav_menu_css_class", "matrix_menu_item_css", 10, 2 );
