@@ -23,7 +23,10 @@
             
                                     <?php 
                                         if(has_post_thumbnail(  )){
+                                            $thumbnil_url = get_the_post_thumbnail_url( "null", "large" );
+                                            echo '<a href="'.$thumbnil_url.'" data-featherlight="image">';
                                             the_post_thumbnail( "learg", array("class" => "img-fluid") );
+                                            echo '</a>';
                                         }else{
                                             ?>
                                                 <p>
