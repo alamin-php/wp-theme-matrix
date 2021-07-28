@@ -132,3 +132,11 @@ ul#menu-social-link li {
 .post-pag-wrap h3 a{
     font-size: 22px;
 }
+
+.page-header{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+    padding: 170px 0px;
+}
