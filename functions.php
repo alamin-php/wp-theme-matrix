@@ -8,6 +8,7 @@ function matrix_bootstraping(){
     load_theme_textdomain( "matrix" );
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
+    add_theme_support( "custom-header" );
     register_nav_menu( "topmenu", __("Top Menu", "matrix") );
     register_nav_menu( "footermenu", __("Social Link", "matrix") );
 }
@@ -75,6 +76,21 @@ function matrix_about_page_template_banner(){
                 }
             </style>
         <?php
+    }
+    if(is_front_page(  )){
+        if(current_theme_supports( "custom-header" )){
+            ?>
+                <style>
+                    .header{
+                        background: url(<?php header_image(  ) ?>);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        margin-bottom: 30px;
+                    }
+                </style>
+            <?php
+        }
     }
 }
 add_action( "wp_head", "matrix_about_page_template_banner", 11 );
