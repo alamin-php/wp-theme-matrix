@@ -1,6 +1,3 @@
-<?php 
-
-?>
 <div class="header page-header">
     <div class="container">
         <div class="row">

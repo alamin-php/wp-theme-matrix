@@ -140,3 +140,11 @@ ul#menu-social-link li {
     margin-bottom: 30px;
     padding: 170px 0px;
 }
+
+.header-logo{
+    margin-top: 50px;
+}
+.header-logo img{
+    border-radius: 50px;
+    padding: 5px;
+}

@@ -13,6 +13,11 @@ function matrix_bootstraping(){
     );
     add_theme_support( "post-thumbnails" );
     add_theme_support( "custom-header", $matrix_custom_header_details);
+    $matrix_custom_logo_default = array(
+        'height' => 100,
+        'width' => 100
+    );
+    add_theme_support( "custom-logo", $matrix_custom_logo_default );
     register_nav_menu( "topmenu", __("Top Menu", "matrix") );
     register_nav_menu( "footermenu", __("Social Link", "matrix") );
 }
@@ -94,6 +99,10 @@ function matrix_about_page_template_banner(){
                     }
                     .header h1.heading a, .header h3.tagline{
                         color: #<?php echo get_header_textcolor(  ); ?>
+                    }
+
+                    .header-logo img{
+                        border: 1px solid #<?php echo get_header_textcolor(  ); ?>
                     }
                 </style>
             <?php
