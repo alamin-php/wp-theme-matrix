@@ -64,3 +64,17 @@ function matrix_menu_item_css($classes, $item){
     return $classes;
 }
 add_filter( "nav_menu_css_class", "matrix_menu_item_css", 10, 2 );
+
+function matrix_about_page_template_banner(){
+    if(is_page(  )){
+        $matrix_feat_image = get_the_post_thumbnail_url( null, "large" );
+        ?>
+            <style>
+                .page-header{
+                    background-image:url(<?php echo $matrix_feat_image ?>);
+                }
+            </style>
+        <?php
+    }
+}
+add_action( "wp_head", "matrix_about_page_template_banner", 11 );
