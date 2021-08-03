@@ -7,17 +7,22 @@ if(site_url( ) == "http://themedev.com"){
 function matrix_bootstraping(){
     load_theme_textdomain( "matrix" );
     add_theme_support( "title-tag" );
+    add_theme_support( "post-thumbnails" );
     $matrix_custom_header_details =  array(
         "header-text" => true,
-        "default-custom-color" => "#222"
+        "default-custom-color" => "#222",
+        'width' => 1200,
+        'height' => 600,
+        "flex-with" => true,
+        "flex-height" => true
     );
-    add_theme_support( "post-thumbnails" );
     add_theme_support( "custom-header", $matrix_custom_header_details);
     $matrix_custom_logo_default = array(
         'height' => 100,
         'width' => 100
     );
     add_theme_support( "custom-logo", $matrix_custom_logo_default );
+    add_theme_support( "custom-background" );
     register_nav_menu( "topmenu", __("Top Menu", "matrix") );
     register_nav_menu( "footermenu", __("Social Link", "matrix") );
 }
