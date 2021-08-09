@@ -47,7 +47,7 @@
                                             $matrix_image = get_field("image");
                                         ?>
                                         <div class="row">
-                                        <div class="col-md-6 metainfo">
+                                        <div class="col-md-12 metainfo">
                                             <strong>Camera: <?php echo $matrix_camera_model; ?></strong><br>
                                             <strong>Location: <?php echo $matrix_location; ?></strong><br>
                                             <strong>Date: <?php echo $matrix_date; ?></strong><br>
@@ -62,6 +62,19 @@
                                                     ?>
                                                 </div>
                                             <?php endif; ?>
+                                                <?php 
+                                                    $file = get_field("attachment");
+                                                    if($file){
+                                                        $file_url = wp_get_attachment_url( $file );
+                                                        $file_thumb = get_field( "thumbnail", $file );
+                                                        if($file_thumb){
+                                                            $file_thumb_details = wp_get_attachment_image_src($file_thumb);
+                                                            echo "<a target='_blank' href='{$file_url}'><img src='".esc_url( $file_thumb_details[0] )."'/></a>";
+                                                        }else{
+                                                            echo "<a target='_blank' href='{$file_url}'>Download File</a>";
+                                                        }
+                                                    }
+                                                ?>
                                         </div>
                                         </div>
                                     <?php endif; ?>
