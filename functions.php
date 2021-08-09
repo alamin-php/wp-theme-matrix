@@ -1,4 +1,5 @@
 <?php
+require_once get_theme_file_path( '/inc/tgm.php' );
 if(site_url( ) == "http://themedev.com"){
     define("VERSION", time());
 }else{
@@ -25,12 +26,15 @@ function matrix_bootstraping(){
     add_theme_support( "custom-background" );
     register_nav_menu( "topmenu", __("Top Menu", "matrix") );
     register_nav_menu( "footermenu", __("Social Link", "matrix") );
+    add_theme_support( "post-formats", array("aside","link", "gallery", "image", "video", "quote", "audio", "chat") );
+
 }
 add_action( "after_setup_theme", "matrix_bootstraping");
 
 function matrix_assets() {
     wp_enqueue_style( 'bootstrap', get_theme_file_uri( "assets/css/bootstrap.min.css"), null, VERSION );
     // wp_enqueue_style( 'bootstrap', "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" );
+    wp_enqueue_style( "dashicons");
     wp_enqueue_style( 'featherlight-css', "//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" );
     wp_enqueue_style( 'matrix-style', get_stylesheet_uri() );
     wp_enqueue_script( 'fateher-light', '//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js', array('jquery'), VERSION, true );

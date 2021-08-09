@@ -19,7 +19,6 @@ h1.heading {
     margin: auto;
     margin-bottom: 70px;
     padding-bottom: 50px;
-    border-bottom: 1px solid #ccc;
 }
 
 h3.tagline{
@@ -151,4 +150,9 @@ ul#menu-social-link li {
 .errorview{
     margin-top: 200px;
     margin-bottom: 465px;
+}
+
+.post-formats .dashicons {
+    font-size: 45px;
+    color: #c1c1c1;
 }

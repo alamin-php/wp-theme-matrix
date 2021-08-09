@@ -23,6 +23,28 @@
                                 echo $tag_list;
                             endif;
                         ?>
+                        <div class="post-formats">
+                        <?php 
+                            $post_formats = get_post_format();
+                            if($post_formats == "aside"){
+                                echo '<span class="dashicons dashicons-format-aside"></span>';
+                            }else if($post_formats == "link"){
+                                echo '<span class="dashicons dashicons-format-links"></span>';
+                            }else if($post_formats == "gallery"){
+                                echo '<span class="dashicons dashicons-format-gallery"></span>';
+                            }else if($post_formats == "image"){
+                                echo '<span class="dashicons dashicons-format-image"></span>';
+                            }else if($post_formats == "video"){
+                                echo '<span class="dashicons dashicons-format-video"></span>';
+                            }else if($post_formats == "quote"){
+                                echo '<span class="dashicons dashicons-format-quote"></span>';
+                            }else if($post_formats == "audio"){
+                                echo '<span class="dashicons dashicons-format-audio"></span>';
+                            }else if($post_formats == "chat"){
+                                echo '<span class="dashicons dashicons-format-chat"></span>';
+                            }
+                        ?>
+                        </div>
                     </div>
                     <div class="col-md-8">
 
