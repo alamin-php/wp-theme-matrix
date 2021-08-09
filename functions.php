@@ -9,6 +9,7 @@ function matrix_bootstraping(){
     load_theme_textdomain( "matrix" );
     add_theme_support( "title-tag" );
     add_theme_support( "post-thumbnails" );
+    add_image_size( "matrix-square", 100, 100, true );
     $matrix_custom_header_details =  array(
         "header-text" => true,
         "default-custom-color" => "#222",

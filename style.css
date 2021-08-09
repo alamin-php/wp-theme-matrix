@@ -156,3 +156,16 @@ ul#menu-social-link li {
     font-size: 45px;
     color: #c1c1c1;
 }
+
+/* Author section style  */
+.authorsection{
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 3px;
+}        
+.authorsection .authorimg img, .metaimage img{
+    border-radius: 100px;
+    vertical-align: middle;
+    padding: 3px;
+    border: 1px solid #c1c1c1;
+}

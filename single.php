@@ -37,6 +37,34 @@
                                         }
                                     ?>
                                     <?php the_content(  );?>
+                                    <?php if(get_post_format( ) == "image") : ?>
+                                        <?php 
+                                            $matrix_camera_model = get_field("camera");
+                                            $matrix_location = get_field("location");
+                                            $matrix_date = get_field("date");
+                                            $matrix_licenses = get_field("licenses");
+                                            $matrix_licenses_details = get_field("licenses_details");
+                                            $matrix_image = get_field("image");
+                                        ?>
+                                        <div class="row">
+                                        <div class="col-md-6 metainfo">
+                                            <strong>Camera: <?php echo $matrix_camera_model; ?></strong><br>
+                                            <strong>Location: <?php echo $matrix_location; ?></strong><br>
+                                            <strong>Date: <?php echo $matrix_date; ?></strong><br>
+                                            <?php if($matrix_licenses) : ?>
+                                                <strong> <?php echo apply_filters( "the_content", $matrix_licenses_details ); ?></strong>
+                                            <?php endif; ?>
+                                            <?php if($matrix_image) :?>
+                                                <div class="metaimage">
+                                                    <?php 
+                                                        $matrix_image_details = wp_get_attachment_image_src( $matrix_image, "matrix-square" );
+                                                        echo "<img src='".esc_url( $matrix_image_details[0] )."'/>";
+                                                    ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="post-pag-wrap">
                                         <div class="post-pag-container prev">
                                             <?php previous_post_link('<span>Previous</span><h3>%link</h3>', '%title', false);?>
@@ -46,11 +74,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php if(comments_open(  )) : ?>
-                                <div class="col-md-10 offset-md-1">
-                                        <?php comments_template(  ); ?>
+                                <div class="authorsection my-5">
+                                    <div class="row">
+                                        <div class="col-md-2 authorimg mt-3">
+                                            <?php 
+                                                echo get_avatar(get_the_author_meta("id"));
+                                            ?>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h4>
+                                                <?php echo get_the_author_meta("display_name"); ?>
+                                            </h4>
+                                            <p><?php echo get_the_author_meta("description"); ?></p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <?php endif; ?>
                             </div>
             
                         </div>

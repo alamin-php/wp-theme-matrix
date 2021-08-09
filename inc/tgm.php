@@ -28,6 +28,11 @@ function matrix_register_required_plugins() {
 			'name'      => 'Classic Editor',
 			'slug'      => 'classic-editor',
 			'required'  => false,
+		),		
+		array(
+			'name'      => 'Regenerate Thumbnails',
+			'slug'      => 'regenerate-thumbnails',
+			'required'  => false,
 		),
 
 	);
