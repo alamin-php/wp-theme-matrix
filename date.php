@@ -5,7 +5,13 @@
     <h2>Posts In
         <?php 
             if(is_month(  )){
-                echo get_query_var( "monthnum" );
+                $month =  get_query_var( "monthnum" );
+                $dateobj = DateTime::createFromFormat("!m", $month);
+                echo $dateobj->format("F");
+            }else if(is_year(  )){
+                echo get_query_var( "year");
+            }else if(is_day(  )){
+                printf("%s/%s/%s", get_query_var( "day" ), get_query_var( "monthnum" ),get_query_var( "year" ) );
             }
         ?>
     </h2>
