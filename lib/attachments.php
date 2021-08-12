@@ -8,7 +8,13 @@ function matrix_attachments( $attachments )
     array(
       'name'      => 'title',                      
       'type'      => 'text',                         
-      'label'     => __( 'Title', 'alpha' ),
+      'label'     => __( 'Title', 'matrix' ),
+    ),
+    array(
+        'name'      => 'caption',    
+        'type'      => 'text',
+        'label'     => __( 'Caption', 'matrix' ),
+        'default'   => 'title'
     ),
   );
 
@@ -18,9 +24,8 @@ function matrix_attachments( $attachments )
     'post_type'     => array( 'post'),
     'filetype'      =>array('image'),
     'note'          => 'Add slider image',
-    'button_text'   => __( 'Attach Files', 'alpha' ),
+    'button_text'   => __( 'Attach Files', 'matrix' ),
     'fields'        => $fields,
-
   );
 
   $attachments->register( 'slider', $args );
