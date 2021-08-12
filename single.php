@@ -93,6 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php if(get_the_author_meta( "display_name" ) && get_the_author_meta( "description" )) : ?>
                                 <div class="authorsection my-5">
                                     <div class="row">
                                         <div class="col-md-2 authorimg mt-3">
@@ -108,6 +109,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php endif; ?>
                             </div>
             
                         </div>
