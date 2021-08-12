@@ -1,4 +1,7 @@
 <?php
+if ( class_exists( 'Attachments' ) ){
+    require_once 'lib/attachments.php';
+}
 require_once get_theme_file_path( '/inc/tgm.php' );
 if(site_url( ) == "http://themedev.com"){
     define("VERSION", time());
