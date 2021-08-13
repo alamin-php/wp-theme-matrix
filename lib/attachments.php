@@ -10,12 +10,6 @@ function matrix_attachments( $attachments )
       'type'      => 'text',                         
       'label'     => __( 'Title', 'matrix' ),
     ),
-    array(
-        'name'      => 'caption',    
-        'type'      => 'text',
-        'label'     => __( 'Caption', 'matrix' ),
-        'default'   => 'title'
-    ),
   );
 
   $args = array(
