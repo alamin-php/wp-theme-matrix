@@ -7,6 +7,36 @@
 <body <?php body_class( ); ?>>
 <?php get_template_part( "/template-parts/about-page/hero-page" ); ?>
 <div class="posts">
+    <?php if(class_exists("Attachments")): ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <h2><?php _e("Testimonials", "matrix") ?></h2>
+                <div class="testimonials slider">
+                    <?php 
+                        $attachments = new Attachments('testimonials');
+                        if($attachments -> exist()){
+                            while($attachment = $attachments->get()){?>
+                                <div>
+                                    <?php echo $attachments->image("thumbnail"); ?>
+                                    <h4><?php echo esc_html( $attachments-> field("name") ) ?></h4>
+                                    <p><?php echo esc_html( $attachments->field("testimonial") ) ?></p>
+                                    <p>
+                                        <?php echo esc_html( $attachments->field("position") ); ?>,
+                                        <strong><?php echo esc_html( $attachments->field("company") ) ?></strong>
+                                    </p>
+                                </div>
+                            <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <?php endif; ?>
 <?php if(have_posts(  )) : ?>
     <?php while(have_posts(  )):the_post(  ); ?>
         <div class="post" <?php post_class(  ); ?>>

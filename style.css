@@ -169,3 +169,12 @@ ul#menu-social-link li {
     padding: 3px;
     border: 1px solid #c1c1c1;
 }
+.testimonials img{
+    width: 120px;
+    height: auto;
+    border-radius: 60px;
+}
+.team-member img{
+    width: 100%;
+    height: auto;
+}
