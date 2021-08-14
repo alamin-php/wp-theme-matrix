@@ -1,7 +1,9 @@
+
 <?php 
     $matrix_layout_class = "col-md-8";
-    if(!is_active_sidebar( "sidebar-1" )){
-       $matrix_layout_class = "col-md-12";
+    if( !is_active_sidebar( "sidebar-1" )){
+        $matrix_layout_class ="col-md-12";
+        $matrix_text_center ="text-center";
     }
 ?>
 <?php get_header(  ); ?>
@@ -9,14 +11,14 @@
 <?php get_template_part( "/template-parts/common/hero" ); ?>
 <div class="container">
     <div class="row">
-        <div class=<?php echo $matrix_layout_class; ?>>
+    <div class="<?php echo $matrix_layout_class; ?>">
             <div class="posts">
             <?php if(have_posts(  )) : ?>
                 <?php while(have_posts(  )):the_post(  ); ?>
                     <div class="post" <?php post_class(  ); ?>>
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 <?php echo $matrix_text_center; ?>">
                                     <h2 class="post-title"><?php the_title(  ); ?></h2>
                                     <p class="">
                                         <strong><?php the_author(  ); ?></strong><br/>
