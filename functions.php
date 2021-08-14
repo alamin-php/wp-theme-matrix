@@ -128,3 +128,10 @@ function matrix_about_page_template_banner(){
     }
 }
 add_action( "wp_head", "matrix_about_page_template_banner", 11 );
+
+function matrix_body_class($classes){
+    unset($classes[array_search("blog", $classes)]);
+    $classes[] = "custom";
+    return $classes;
+}
+add_filter( "body_class", "matrix_body_class" );
