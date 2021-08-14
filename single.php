@@ -28,8 +28,25 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-            
-                                    <?php 
+
+                                    <div class="slider">
+                                        <?php 
+                                        if(class_exists('Attachments')){
+                                            $attachments = new Attachments('slider');
+                                            if($attachments->exist()){
+                                                while($attachment = $attachments->get()){?>
+                                                <div>
+                                                    <?php echo $attachments->image('large'); ?>
+                                                </div>
+                                                <?php
+
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <?php
+                                    if( !class_exists('Attachments')){
                                         if(has_post_thumbnail(  )){
                                             $thumbnil_url = get_the_post_thumbnail_url( "null", "large" );
                                             echo '<a href="'.$thumbnil_url.'" data-featherlight="image">';
@@ -43,6 +60,7 @@
                                                 </p>
                                             <?php
                                         }
+                                    }
                                     ?>
                                     <?php the_content(  );?>
                                     <?php if(get_post_format( ) == "image") : ?>
