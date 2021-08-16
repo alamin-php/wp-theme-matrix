@@ -12,9 +12,21 @@
     $matrix_posts_per_page = 3;
     $matrix_post_ids = array(128,125,122);
     $_p = new WP_Query( array(
-        'category' => 'default',
         'posts_per_page'=>$matrix_posts_per_page,
         'paged' => $matrix_paged,
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'slug',
+                'terms' => array('new')
+            ),            
+            array(
+                'taxonomy' => 'post_tag',
+                'field' => 'slug',
+                'terms' => array('spacial')
+            ),
+        ),
         ),
     );
     ?>
