@@ -1,6 +1,6 @@
 <?php 
     /*
-    * Template Name: Custom Query
+    * Template Name: Custom Query WPQuery
     */
 ?>
 <?php get_header(  ); ?>
@@ -8,14 +8,16 @@
 <?php get_template_part( "/template-parts/common/hero" ); ?>
 <div class="posts text-center">
     <?php 
-        $_p = get_posts( array(
-            'posts_per_page'=>3,
-            'post__in' => array(18,15,12),
-            'orderby' => 'post__in'
-            ),
-        );
+    $matrix_posts_per_page = 2;
+    $matrix_post_ids = array(18,15,12);
+    $_p = new WP_Query( array(
+        'posts_per_page'=>$matrix_posts_per_page,
+        'post__in' => $matrix_post_ids,
+        'orderby' => 'post__in'
+        ),
+    );
     ?>
-    <?php foreach($_p as $post) : setup_postdata( $post ); ?>
+    <?php while($_p->have_posts(  )) : $_p->the_post(  ) ; ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -23,7 +25,7 @@
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
-    <?php wp_reset_postdata(  ); ?>
+    <?php endwhile; ?>
+    <?php wp_reset_query(  ); ?>
     <?php get_template_part( "template-parts/posts-pagination" ); ?>
 <?php get_footer(  ); ?>
