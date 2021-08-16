@@ -14,19 +14,22 @@
     $_p = new WP_Query( array(
         'posts_per_page'=>$matrix_posts_per_page,
         'paged' => $matrix_paged,
-        'tax_query' => array(
-            'relation' => 'OR',
-            array(
-                'taxonomy' => 'category',
-                'field' => 'slug',
-                'terms' => array('new')
-            ),            
-            array(
-                'taxonomy' => 'post_tag',
-                'field' => 'slug',
-                'terms' => array('spacial')
-            ),
-        ),
+        // 'tax_query' => array(
+        //     'relation' => 'OR',
+        //     array(
+        //         'taxonomy' => 'category',
+        //         'field' => 'slug',
+        //         'terms' => array('new')
+        //     ),            
+        //     array(
+        //         'taxonomy' => 'post_tag',
+        //         'field' => 'slug',
+        //         'terms' => array('spacial')
+        //     ),
+        // ),
+        // 'monthnum' => '3'
+        // 'post_status' => 'draft',
+        'post_status' => 'future',
         ),
     );
     ?>
