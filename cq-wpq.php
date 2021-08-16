@@ -8,12 +8,13 @@
 <?php get_template_part( "/template-parts/common/hero" ); ?>
 <div class="posts text-center">
     <?php 
-    $matrix_posts_per_page = 2;
-    $matrix_post_ids = array(18,15,12);
+    $matrix_paged = get_query_var( "paged" ) ? get_query_var("paged") : 1;
+    $matrix_posts_per_page = 3;
+    $matrix_post_ids = array(128,125,122);
     $_p = new WP_Query( array(
+        'category' => 'default',
         'posts_per_page'=>$matrix_posts_per_page,
-        'post__in' => $matrix_post_ids,
-        'orderby' => 'post__in'
+        'paged' => $matrix_paged,
         ),
     );
     ?>
@@ -27,5 +28,19 @@
         </div>
     <?php endwhile; ?>
     <?php wp_reset_query(  ); ?>
-    <?php get_template_part( "template-parts/posts-pagination" ); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php 
+                    echo paginate_links( 
+                        array(
+                            "total" => $_p ->max_num_pages,
+                            'current' => $matrix_paged,
+                            'prev_next' => false
+                        ),
+                    );
+                ?>
+            </div>
+        </div>
+    </div>
 <?php get_footer(  ); ?>
