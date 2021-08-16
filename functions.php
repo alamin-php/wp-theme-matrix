@@ -135,3 +135,11 @@ function matrix_body_class($classes){
     return $classes;
 }
 add_filter( "body_class", "matrix_body_class" );
+
+function matrix_modify_main_query_post($wpq){
+    if(is_home(  ) && $wpq->is_main_query(  )){
+        $wpq->set('post__not_in', array(131));
+        // $wpq->set('tag__not_in', array(29));
+    }
+}
+add_filter( "pre_get_posts", "matrix_modify_main_query_post" );

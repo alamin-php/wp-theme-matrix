@@ -15,15 +15,7 @@
         array(
             'posts_per_page' => $post_per_page,
             'paged' => $paged,
-            'tax_query' => array(
-                'relation' => 'OR',
-                array(
-                    'taxonomy' => 'post_format',
-                    'field' => 'slug',
-                    'terms' => array('post-format-audio', 'post-format-video'),
-                    // 'operator'=> 'NOT_IN'
-                ),
-            ),
+            
         ),
     );
 
