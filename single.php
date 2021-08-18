@@ -13,6 +13,7 @@
     <div class="row">
     <div class="<?php echo $matrix_layout_class; ?>">
             <div class="posts">
+                <!-- Main posts details -->
             <?php if(have_posts(  )) : ?>
                 <?php while(have_posts(  )):the_post(  ); ?>
                     <div class="post" <?php post_class(  ); ?>>
@@ -63,6 +64,7 @@
                                     }
                                     ?>
                                     <?php the_content(  );?>
+                                    <!-- Post format ways image info -->
                                     <?php if(get_post_format( ) == "image") : ?>
                                         <?php 
                                             $matrix_camera_model = get_field("camera");
@@ -104,6 +106,7 @@
                                         </div>
                                         </div>
                                     <?php endif; ?>
+                                    <!-- Single post pagination -->
                                     <div class="post-pag-wrap">
                                         <div class="post-pag-container prev">
                                             <?php previous_post_link('<span>Previous</span><h3>%link</h3>', '%title', false);?>
@@ -112,7 +115,29 @@
                                             <?php next_post_link('<span>Next</span><h3>%link</h3>', '%title', false);?>
                                         </div>
                                     </div>
+                                    <!-- Releated posts -->
+                                    <?php if(function_exists('the_field')) : ?>
+                                        <div class="">
+                                            <h1><?php _e("Related Posts", "matrix"); ?></h1>
+                                            <?php 
+                                                $matrix_related_posts = get_field("related_posts");
+                                                $args = array(
+                                                    "post__in" => $matrix_related_posts,
+                                                    'orderby' => 'post__in'
+                                                );
+
+                                                $matrix_rp = new WP_Query($args);
+                                                while($matrix_rp->have_posts(  )){
+                                                    $matrix_rp->the_post(  );?>
+                                                        <h4><a href="<?php the_permalink(  ) ?>"><?php the_title(  ) ?></a></h4>
+                                                    <?php
+                                                }
+                                                wp_reset_query(  );
+                                            ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
+                                <!-- Display author meta -->
                                 <?php if(get_the_author_meta( "display_name" ) && get_the_author_meta( "description" )) : ?>
                                 <div class="authorsection my-5">
                                     <div class="row">
@@ -138,21 +163,23 @@
                                     </div>
                                 </div>
                                 <?php endif; ?>
+
                             </div>
             
                         </div>
                     </div>
                 <?php endwhile; wp_reset_postdata(  );?>
+
             <?php endif; ?>
             </div>
         </div>
+        <!-- Active main sidebar -->
         <?php if(is_active_sidebar( "sidebar-1" )) : ?>
         <div class="col-md-4">
             <?php 
                 if(is_active_sidebar( "sidebar-1" )) {
                     dynamic_sidebar( "sidebar-1" );
                 }
-            
             ?>
         </div>
         <?php endif; ?>
