@@ -144,3 +144,6 @@ function matrix_modify_main_query_post($wpq){
     }
 }
 add_filter( "pre_get_posts", "matrix_modify_main_query_post" );
+
+
+add_filter('acf/settings/show_admin', '__return_false');
