@@ -25,16 +25,10 @@ function matrix_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'      => 'Classic Editor',
-			'slug'      => 'classic-editor',
-			'required'  => false,
-		),		
-		array(
-			'name'      => 'Regenerate Thumbnails',
-			'slug'      => 'regenerate-thumbnails',
+			'name'      => 'CMB2',
+			'slug'      => 'cmb2',
 			'required'  => false,
 		),
-
 	);
 
 	$config = array(
